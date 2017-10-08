@@ -10,6 +10,6 @@ and then run:
 
 `supervisord` on the same directory
 
-Feel free to open issued and do PRs
+Feel free to open issues and do PRs
 
 ETH 0x4ebA97053a50efe9D5D8E1AEDdd1Af637c055716
