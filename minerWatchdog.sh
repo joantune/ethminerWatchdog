@@ -1,8 +1,8 @@
 #!/bin/bash
-limit=70
+limit=55
 watchCmd="/usr/bin/nvidia-smi -q -d POWER | grep \"Power Draw\" | sed 's/[^0-9,.]*//g' | cut -d . -f 1"
 
-startIn=30
+startIn=60
 
 echo "Watchdog: Waiting $startIn s untill activating watchdog"
 sleep $startIn;
@@ -13,7 +13,7 @@ do
 	#echo "Current power usage is $currentPowerUsage"
 	if [ "$currentPowerUsage" -lt "$limit" ]
 	then
-		echo "`date`: Current power usage is $currentPowerUsage < $limit killing miner" | tee watchdogLog.log
+		echo "`date`: Current power usage is $currentPowerUsage < $limit killing miner" | tee -a watchdogLog.log
 		killall ethminer ; sleep 1; killall -9 ethminer
 		sleep 20;
 	fi
